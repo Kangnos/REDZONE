@@ -58,6 +58,7 @@ public class PlayerMovement : MonoBehaviour
 
         if (Input.GetKey(KeyCode.F)) {
             speed = 10f;
+            intscore = 0;
         }
     }
 
@@ -68,12 +69,12 @@ public class PlayerMovement : MonoBehaviour
             score = 100;
             
         }
-        if (speed == 0) {
+        if (speed <= 10f) {
             score += 0;
             intscore = (int) score;
             ScoreText.text = "Score: " + intscore.ToString();
         }
-        else if (speed > 0){
+        else if (speed > 10f){
             score += Time.deltaTime * 3;
             intscore = (int) score;
             ScoreText.text = "Score: " + intscore.ToString();

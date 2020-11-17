@@ -127,6 +127,6 @@ MonoBehaviour:
   delay: 3
   explosionParticle: {fileID: 198000012942003240, guid: ecdd96beb7f93494880c052dfccf9dc1,
     type: 3}
-  radius: 6
+  radius: 7
   explosionForce: 600
   MaxDamage: 50
