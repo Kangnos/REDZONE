@@ -65,6 +65,7 @@ public class PlayerMovement : MonoBehaviour
     public IEnumerator ScoreChange(){
         yield return new WaitForSeconds(waittime);
         if (intscore >= maxtime) {
+            gameObject.SetActive(false); 
             WinText.SetActive(true);
             score = 100;
             
