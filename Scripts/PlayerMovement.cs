@@ -76,7 +76,7 @@ public class PlayerMovement : MonoBehaviour
             ScoreText.text = "Score: " + intscore.ToString();
         }
         else if (speed > 10f){
-            score += Time.deltaTime * 3;
+            score += Time.deltaTime * 2;
             intscore = (int) score;
             ScoreText.text = "Score: " + intscore.ToString();
         }
