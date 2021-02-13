@@ -68,7 +68,6 @@ public class PlayerMovement : MonoBehaviour
             gameObject.SetActive(false); 
             WinText.SetActive(true);
             score = 100;
-            
         }
         if (speed <= 10f) {
             score += 0;

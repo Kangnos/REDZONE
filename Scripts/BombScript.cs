@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Audio;
 
 public class BombScript : MonoBehaviour {
 
@@ -16,6 +17,8 @@ public class BombScript : MonoBehaviour {
 
     public float MaxDamage = 100;
 
+    public AudioSource bombsound;
+
 	// Use this for initialization
 	void Start () {
         countdown = delay;
@@ -29,8 +32,10 @@ public class BombScript : MonoBehaviour {
     void OnTriggerEnter(Collider other){
         Instantiate(explosionParticle, transform.position, transform.rotation);
 
-        Collider[] colliders = Physics.OverlapSphere(transform.position, radius);
+        bombsound.Play();
 
+        Collider[] colliders = Physics.OverlapSphere(transform.position, radius);
+        FindObjectOfType<AudioManager>().Play("Bombing");
         for (int i = 0; i < colliders.Length; i++)
         {
             Rigidbody targetRigidbody = colliders[i].GetComponent<Rigidbody>();
