@@ -17,8 +17,6 @@ public class BombScript : MonoBehaviour {
 
     public float MaxDamage = 100;
 
-    public AudioSource bombsound;
-
 	// Use this for initialization
 	void Start () {
         countdown = delay;
@@ -32,10 +30,8 @@ public class BombScript : MonoBehaviour {
     void OnTriggerEnter(Collider other){
         Instantiate(explosionParticle, transform.position, transform.rotation);
 
-        bombsound.Play();
 
         Collider[] colliders = Physics.OverlapSphere(transform.position, radius);
-        FindObjectOfType<AudioManager>().Play("Bombing");
         for (int i = 0; i < colliders.Length; i++)
         {
             Rigidbody targetRigidbody = colliders[i].GetComponent<Rigidbody>();
@@ -53,8 +49,7 @@ public class BombScript : MonoBehaviour {
 
             targetHealth.TakeDamage(damage);
         }
-        Destroy(gameObject,1);
-
+        Destroy(gameObject);
     }
 
     private float CalculateDamage (Vector3 targetPosition)
