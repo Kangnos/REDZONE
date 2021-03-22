@@ -8,8 +8,9 @@ public class GameManager : MonoBehaviour
 
 
     public GameObject[] Bombs;
+    public int AmoutOfBombs;
     public Vector3 spawnValues;
-    public float spawnWait;
+    private float spawnWait;
     public float spawnMostWait;
     public float spawnLeastWait;
     public int startWait;
@@ -43,7 +44,7 @@ public class GameManager : MonoBehaviour
 
         while (running)
         {      
-            randBomb = Random.Range(0, 2);
+            randBomb = Random.Range(0, AmoutOfBombs);
 
             Vector3 spawnPos = new Vector3(Random.Range(-spawnValues.x, spawnValues.x), 4, Random.Range(-spawnValues.z, spawnValues.z));
 
